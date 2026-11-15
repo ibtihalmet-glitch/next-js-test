@@ -1,0 +1,31 @@
+:root { --purple:#5b2a86; --gold:#fdb827; --ink:#0d0716; }
+* { box-sizing:border-box; margin:0; }
+html,body { height:100%; }
+body {
+  min-height:100vh; display:grid; grid-template-rows:auto 1fr auto;
+  background: radial-gradient(ellipse at 50% 115%, #5b2a86 0%, #2a1247 38%, var(--ink) 75%);
+  color:#fff; font-family:'Helvetica Neue',Arial,sans-serif; overflow:hidden; position:relative;
+}
+/* soft golden sun glow, like the inspiration shots */
+.glow { position:absolute; left:50%; bottom:-20vh; width:80vw; height:60vh; transform:translateX(-50%);
+  background:radial-gradient(ellipse, rgba(253,184,39,.55), transparent 65%); filter:blur(40px);
+  animation:breathe 7s ease-in-out infinite; pointer-events:none; }
+@keyframes breathe { 50% { opacity:.65; transform:translateX(-50%) scale(1.08); } }
+
+header { padding:28px 40px; position:relative; z-index:1; }
+.logo { height:84px; filter:drop-shadow(0 0 18px rgba(253,184,39,.35)); }
+
+main { display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; position:relative; z-index:1; padding:0 24px; }
+.eyebrow { letter-spacing:.35em; font-size:.75rem; color:var(--gold); margin-bottom:28px; opacity:.9; }
+h1 { line-height:.95; animation:rise 1.2s ease both; }
+h1 span { display:block; font-weight:200; font-size:clamp(2.2rem,7vw,6rem); letter-spacing:.12em; }
+h1 strong { display:block; font-weight:800; font-size:clamp(2.8rem,10.5vw,9rem); letter-spacing:-.01em;
+  background:linear-gradient(90deg,#fff 30%,var(--gold)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+@keyframes rise { from { opacity:0; transform:translateY(30px); } }
+
+footer { display:flex; justify-content:space-between; align-items:center; padding:22px 40px;
+  border-top:1px solid rgba(255,255,255,.15); font-size:.8rem; letter-spacing:.25em; position:relative; z-index:1;
+  background:rgba(13,7,22,.35); backdrop-filter:blur(6px); }
+#insta { color:#fff; width:26px; height:26px; transition:.25s; }
+#insta:hover { color:var(--gold); transform:scale(1.2); }
+@media (max-width:600px){ header,footer{padding:18px 20px;} .logo{height:60px;} footer{font-size:.65rem;} }
